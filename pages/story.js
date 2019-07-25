@@ -11,7 +11,7 @@ const Story = ({ story }) => {
     title, url, points, comments, comments_count, time_ago,
   } = story;
   return (
-    <Layout title={title}>
+    <Layout title={title} backButton>
       <main>
         <h1 className="story-title">
           <a href={url}>{title}</a>
@@ -31,7 +31,7 @@ const Story = ({ story }) => {
             { time_ago }
           </strong>
           {
-            story.comments.length > 0 ? <CommentList comments={story.comments} /> : <div>No comments</div>
+            comments.length > 0 ? <CommentList comments={story.comments} /> : <div>No comments</div>
           }
         </div>
       </main>

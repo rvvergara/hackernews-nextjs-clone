@@ -1,24 +1,42 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-const Layout = ({ children, title, description }) => (
-  <div>
-    <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-    </Head>
-    <div className="container">
-      <nav>
-        <Link href="/">
-          <a>
-            <span className="main-title">HackerNews Clone</span>
-          </a>
-        </Link>
-      </nav>
-      { children }
-    </div>
-    <style jsx>
-      {`
+const Layout = ({
+  children, title, description, backButton,
+}) => {
+  const router = useRouter();
+  return (
+    <div>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <div className="container">
+        <nav>
+          {
+          backButton && (
+            <span
+              role="button"
+              tabIndex="0"
+              className="back-button"
+              onClick={() => router.back()}
+              onKeyDown={() => router.back()}
+            >
+              &#x2b05;
+            </span>
+          )
+        }
+          <Link href="/">
+            <a>
+              <span className="main-title">HackerNews Clone</span>
+            </a>
+          </Link>
+        </nav>
+        { children }
+      </div>
+      <style jsx>
+        {`
       .container {
         max-width: 800px;
         margin: 0 auto;
@@ -38,10 +56,15 @@ const Layout = ({ children, title, description }) => (
       nav .main-title {
         font-weight: bold;
       }
+      nav .back-button {
+        font-size: 0.9rem;
+        padding-right: 1em;
+        cursor: pointer;
+      }
     `}
-    </style>
-    <style global jsx>
-      {`
+      </style>
+      <style global jsx>
+        {`
       body {
         background: white;
         font-family: Verdana, Geneva, sans-serif;
@@ -49,8 +72,9 @@ const Layout = ({ children, title, description }) => (
       }
     `}
 
-    </style>
-  </div>
-);
+      </style>
+    </div>
+  );
+};
 
 export default Layout;
