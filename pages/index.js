@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import Error from 'next/error';
+import StoryList from '../components/StoryList';
 
 const Index = ({ stories }) => {
   if (stories.length === 0) {
@@ -9,15 +10,7 @@ const Index = ({ stories }) => {
   return (
     <div>
       <h1>HackerNews Clone</h1>
-      <div>
-        {
-          stories.map(story => (
-            <h4 key={story.id}>
-              { story.title }
-            </h4>
-          ))
-        }
-      </div>
+      <StoryList stories={stories} />
     </div>
   );
 };
