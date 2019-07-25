@@ -13,7 +13,9 @@
     "react-dom": "^16.8.6"
   },
   "scripts": {
-    "dev": "next -p 4000"
+    "dev": "next -p 4000",
+    "build": "next build",
+    "export": "next export"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
