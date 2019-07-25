@@ -2,6 +2,8 @@
 
 Project built using NextJS
 
+### [See Demo Here](https://hackernews-clone-next-js.netlify.com/)
+
 # Motivation
 
 Creating client-side rendered React apps is awesome. However, it isn't enough to just be able to create highly-interactive user interfaces. It is also important to start considering page loads especially when the app becomes big. Another consideration is SEO. Using server-side-rendering (SSR) should take care of these two matters.
