@@ -11,6 +11,7 @@ const Layout = ({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
       </Head>
       <div className="container">
         <nav>
