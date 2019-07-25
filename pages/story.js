@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import Error from 'next/error';
 import Layout from '../components/Layout';
+import CommentList from '../components/CommentList';
 
 const Story = ({ story }) => {
   if (!story) {
@@ -29,6 +30,9 @@ const Story = ({ story }) => {
           <strong>
             { time_ago }
           </strong>
+          {
+            story.comments.length > 0 ? <CommentList comments={story.comments} /> : <div>No comments</div>
+          }
         </div>
       </main>
       <style jsx>
