@@ -8,6 +8,15 @@ const Index = ({ stories, page }) => {
   if (stories.length === 0) {
     return <Error statusCode={503} />;
   }
+  React.useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(registration => console.log('Service worker registered', registration))
+        .catch(err => console.warn('Service worker registration failed', err));
+    }
+  }, []);
+
   return (
     <Layout
       title="HackerNews Clone"
