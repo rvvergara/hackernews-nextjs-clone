@@ -17,7 +17,8 @@
     "dev": "node server.js",
     "build": "next build",
     "export": "next export",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "deploy": "now --public"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
